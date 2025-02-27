@@ -100,6 +100,7 @@ def kotlin_version = getExtOrDefault("kotlinVersion")
 dependencies {
   implementation "com.facebook.react:react-android"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation "androidx.emoji2:emoji2-emojipicker:1.5.0"
 }
 
 if (isNewArchitectureEnabled()) {

@@ -1,10 +1,17 @@
-import { View, StyleSheet } from 'react-native';
-import { EmojiPopupView } from 'react-native-emoji-popup';
+import { useState } from 'react';
+import { View, StyleSheet, TextInput, Text } from 'react-native';
+import { EmojiPopup } from 'react-native-emoji-popup';
 
 export default function App() {
+  const [emoji, setEmoji] = useState('');
+
   return (
     <View style={styles.container}>
-      <EmojiPopupView color="#32a852" style={styles.box} />
+      <Text style={{ fontSize: 30 }}>React Native Emoji Picker</Text>
+      <TextInput value={emoji} style={{ fontSize: 50 }} />
+      <EmojiPopup onEmojiSelected={setEmoji}>
+        <Text style={styles.buttonText}>Open Emoji Picker</Text>
+      </EmojiPopup>
     </View>
   );
 }
@@ -15,9 +22,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  modalView: {
+    flex: 1,
+    backgroundColor: 'white',
+    paddingTop: 50,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    backgroundColor: '#2196F3',
+    padding: 10,
+    borderRadius: 5,
   },
 });

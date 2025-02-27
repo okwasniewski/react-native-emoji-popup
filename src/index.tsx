@@ -1,2 +1,1 @@
-export { default as EmojiPopupView } from './EmojiPopupViewNativeComponent';
-export * from './EmojiPopupViewNativeComponent';
+export { default as EmojiPopup } from './EmojiPopup';
