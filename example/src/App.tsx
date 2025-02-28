@@ -3,11 +3,13 @@ import { View, StyleSheet, TextInput, Text } from 'react-native';
 import { EmojiPopup } from 'react-native-emoji-popup';
 
 export default function App() {
-  const [emoji, setEmoji] = useState('');
+  const [emoji, setEmoji] = useState('🫡');
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 30 }}>React Native Emoji Picker</Text>
+      <Text style={{ fontSize: 30, marginBottom: 20 }}>
+        React Native Emoji Popup ✨
+      </Text>
       <TextInput value={emoji} style={{ fontSize: 50 }} />
       <EmojiPopup onEmojiSelected={setEmoji}>
         <Text style={styles.buttonText}>Open Emoji Picker</Text>

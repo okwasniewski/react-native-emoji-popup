@@ -7,19 +7,21 @@
 
 #import "RCTFabricComponentsPlugins.h"
 
+#import "EmojiPopup-Swift.h"
+
 using namespace facebook::react;
 
-@interface EmojiPopupView () <RCTEmojiPopupViewViewProtocol>
+@interface EmojiPopupView () <RCTEmojiPopupViewViewProtocol, EmojiPopupDelegate>
 
 @end
 
 @implementation EmojiPopupView {
-    UIView * _view;
+  EmojiPopupViewImpl * _view;
 }
 
 + (ComponentDescriptorProvider)componentDescriptorProvider
 {
-    return concreteComponentDescriptorProvider<EmojiPopupViewComponentDescriptor>();
+  return concreteComponentDescriptorProvider<EmojiPopupViewComponentDescriptor>();
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -27,45 +29,36 @@ using namespace facebook::react;
   if (self = [super initWithFrame:frame]) {
     static const auto defaultProps = std::make_shared<const EmojiPopupViewProps>();
     _props = defaultProps;
-
-    _view = [[UIView alloc] init];
-
+    
+    _view = [[EmojiPopupViewImpl alloc] initWithDelegate:self];
+    
     self.contentView = _view;
   }
-
+  
   return self;
 }
 
 - (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
 {
-    const auto &oldViewProps = *std::static_pointer_cast<EmojiPopupViewProps const>(_props);
-    const auto &newViewProps = *std::static_pointer_cast<EmojiPopupViewProps const>(props);
+  const auto &oldViewProps = *std::static_pointer_cast<EmojiPopupViewProps const>(_props);
+  const auto &newViewProps = *std::static_pointer_cast<EmojiPopupViewProps const>(props);
+  
+  [super updateProps:props oldProps:oldProps];
+}
 
-    if (oldViewProps.color != newViewProps.color) {
-        NSString * colorToConvert = [[NSString alloc] initWithUTF8String: newViewProps.color.c_str()];
-        [_view setBackgroundColor:[self hexStringToColor:colorToConvert]];
-    }
-
-    [super updateProps:props oldProps:oldProps];
+- (void)didGetEmojiWithEmoji:(NSString *)emoji {
+  auto eventEmitter = std::static_pointer_cast<const EmojiPopupViewEventEmitter>(_eventEmitter);
+  const char* utf8String = [emoji UTF8String];
+  if (eventEmitter) {
+    eventEmitter->onEmojiSelected(EmojiPopupViewEventEmitter::OnEmojiSelected {
+      .emoji = std::string { utf8String }
+    });
+  }
 }
 
 Class<RCTComponentViewProtocol> EmojiPopupViewCls(void)
 {
-    return EmojiPopupView.class;
-}
-
-- hexStringToColor:(NSString *)stringToConvert
-{
-    NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    NSScanner *stringScanner = [NSScanner scannerWithString:noHashString];
-
-    unsigned hex;
-    if (![stringScanner scanHexInt:&hex]) return nil;
-    int r = (hex >> 16) & 0xFF;
-    int g = (hex >> 8) & 0xFF;
-    int b = (hex) & 0xFF;
-
-    return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
+  return EmojiPopupView.class;
 }
 
 @end
