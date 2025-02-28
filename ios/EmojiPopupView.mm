@@ -1,13 +1,17 @@
 #import "EmojiPopupView.h"
 
-#import "generated/RNEmojiPopupViewSpec/ComponentDescriptors.h"
-#import "generated/RNEmojiPopupViewSpec/EventEmitters.h"
-#import "generated/RNEmojiPopupViewSpec/Props.h"
-#import "generated/RNEmojiPopupViewSpec/RCTComponentViewHelpers.h"
+#import <react/renderer/components/RNEmojiPopupViewSpec/ComponentDescriptors.h>
+#import <react/renderer/components/RNEmojiPopupViewSpec/EventEmitters.h>
+#import <react/renderer/components/RNEmojiPopupViewSpec/Props.h>
+#import <react/renderer/components/RNEmojiPopupViewSpec/RCTComponentViewHelpers.h>
 
 #import "RCTFabricComponentsPlugins.h"
 
+#if __has_include("EmojiPopup/EmojiPopup-Swift.h")
+#import "EmojiPopup/EmojiPopup-Swift.h"
+#else
 #import "EmojiPopup-Swift.h"
+#endif
 
 using namespace facebook::react;
 
@@ -38,15 +42,7 @@ using namespace facebook::react;
   return self;
 }
 
-- (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
-{
-  const auto &oldViewProps = *std::static_pointer_cast<EmojiPopupViewProps const>(_props);
-  const auto &newViewProps = *std::static_pointer_cast<EmojiPopupViewProps const>(props);
-  
-  [super updateProps:props oldProps:oldProps];
-}
-
-- (void)didGetEmojiWithEmoji:(NSString *)emoji {
+- (void)didGetEmojiWithEmoji:(NSString *)emoji reactTag:(NSNumber *)reactTag {
   auto eventEmitter = std::static_pointer_cast<const EmojiPopupViewEventEmitter>(_eventEmitter);
   const char* utf8String = [emoji UTF8String];
   if (eventEmitter) {

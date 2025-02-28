@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/okwasniewski/react-native-emoji-popup.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
-  s.private_header_files = "ios/generated/**/*.h"
 
   s.dependency "MCEmojiPicker"
 

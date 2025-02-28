@@ -3,12 +3,13 @@ import MCEmojiPicker
 import React
 
 @objc public protocol EmojiPopupDelegate {
-  func didGetEmoji(emoji: String)
+  func didGetEmoji(emoji: String, reactTag: NSNumber?)
 }
 
 @objc
 public class EmojiPopupViewImpl: UIView, MCEmojiPickerDelegate {
   private var delegate: EmojiPopupDelegate?
+  @objc var onEmojiSelected: RCTDirectEventBlock?
   
   public override func layoutSubviews() {
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -35,7 +36,7 @@ public class EmojiPopupViewImpl: UIView, MCEmojiPickerDelegate {
   // MARK: MCEmojiPickerDelegate
   
   public func didGetEmoji(emoji: String) {
-    delegate?.didGetEmoji(emoji: emoji)
+    delegate?.didGetEmoji(emoji: emoji, reactTag: self.reactTag)
   }
 }
 
