@@ -82,9 +82,12 @@ android {
     main {
       if (isNewArchitectureEnabled()) {
           java.srcDirs += [
+            "src/fabric",
             "generated/java",
             "generated/jni"
           ]
+      } else {
+          java.srcDirs += ["src/oldarch"]
       }
     }
   }

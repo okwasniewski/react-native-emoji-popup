@@ -1,12 +1,10 @@
 package com.emojipopup
 
-import android.graphics.Color
 import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.UIManagerHelper
 import com.facebook.react.uimanager.ViewManagerDelegate
-import com.facebook.react.uimanager.annotations.ReactProp
 import com.facebook.react.viewmanagers.EmojiPopupViewManagerInterface
 import com.facebook.react.viewmanagers.EmojiPopupViewManagerDelegate
 
@@ -29,7 +27,6 @@ class EmojiPopupViewManager : SimpleViewManager<EmojiPopupView>(),
     view.onEmojiSelectedListener = { emoji ->
       eventDispatcher?.dispatchEvent(EmojiSelectedEvent(viewTag = view.id, emoji))
     }
-
     return view
   }
 
