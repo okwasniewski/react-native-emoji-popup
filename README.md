@@ -1,6 +1,8 @@
-# react-native-emoji-popup
+# `react-native-emoji-popup` 🌈
 
-Emoji Popup for React Native
+Emoji Popup for React Native, using native primitives. [MCEmojiPicker](https://github.com/izyumkin/MCEmojiPicker) on iOS and [Emoji2](https://developer.android.com/jetpack/androidx/releases/emoji2) on Android.
+
+https://github.com/user-attachments/assets/a6f94dc5-6175-419c-a6e4-04ef48aaf913
 
 ## Installation
 
@@ -10,13 +12,23 @@ npm install react-native-emoji-popup
 
 ## Usage
 
+The API is simple, just wrap your component with the `EmojiPopup` component and pass a callback to the `onEmojiSelected` prop.
 
 ```js
-import { EmojiPopupView } from "react-native-emoji-popup";
+import { EmojiPopup } from 'react-native-emoji-popup';
 
-// ...
+export default function EmojiExample() {
+  const [emoji, setEmoji] = useState('🫡');
 
-<EmojiPopupView color="tomato" />
+  return (
+    <View>
+      <TextInput value={emoji} />
+      <EmojiPopup onEmojiSelected={setEmoji}>
+        <Text style={styles.buttonText}>Open Emoji Picker</Text>
+      </EmojiPopup>
+    </View>
+  );
+}
 ```
 
 
@@ -27,6 +39,10 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
+
+## Acknowledgements
+
+- [MCEmojiPicker](https://github.com/izyumkin/MCEmojiPicker)
 
 ---
 
