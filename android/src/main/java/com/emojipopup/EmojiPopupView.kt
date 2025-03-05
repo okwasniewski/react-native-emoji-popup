@@ -1,7 +1,6 @@
 package com.emojipopup
 
 import android.content.Context
-import android.util.Log
 import android.widget.FrameLayout
 import androidx.annotation.UiThread
 import androidx.emoji2.emojipicker.EmojiPickerView

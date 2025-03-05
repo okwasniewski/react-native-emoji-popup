@@ -1,5 +1,6 @@
 package com.emojipopup
 
+import com.facebook.react.common.MapBuilder
 import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
@@ -28,6 +29,13 @@ class EmojiPopupViewManager : SimpleViewManager<EmojiPopupView>(),
       eventDispatcher?.dispatchEvent(EmojiSelectedEvent(viewTag = view.id, emoji))
     }
     return view
+  }
+
+  override fun getExportedCustomDirectEventTypeConstants(): MutableMap<String, Any>? {
+    return MapBuilder.of(
+      EmojiSelectedEvent.EVENT_NAME,
+      MapBuilder.of("registrationName", "onEmojiSelected"),
+    )
   }
 
   companion object {
