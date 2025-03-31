@@ -3,8 +3,14 @@ import EmojiPopupView from './EmojiPopupViewNativeComponent';
 import { useState } from 'react';
 import type { EmojiPopupProps } from './types';
 
-const EmojiModal = ({ children, onEmojiSelected }: EmojiPopupProps) => {
+const EmojiModal = ({
+  children,
+  onEmojiSelected,
+  closeButton,
+}: EmojiPopupProps) => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const close = () => setModalVisible(false);
 
   return (
     <>
@@ -17,12 +23,13 @@ const EmojiModal = ({ children, onEmojiSelected }: EmojiPopupProps) => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalView}>
-          <Pressable
-            style={styles.closeButton}
-            onPress={() => setModalVisible(false)}
-          >
-            <Text style={styles.buttonText}>Close</Text>
-          </Pressable>
+          {closeButton ? (
+            closeButton(close)
+          ) : (
+            <Pressable style={styles.closeButton} onPress={close}>
+              <Text style={styles.buttonText}>Close</Text>
+            </Pressable>
+          )}
           <EmojiPopupView
             onEmojiSelected={({ nativeEvent: { emoji } }) => {
               setModalVisible(false);
