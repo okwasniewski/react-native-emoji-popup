@@ -1,7 +1,7 @@
 PODS:
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
-  - EmojiPopup (0.1.0):
+  - EmojiPopup (0.1.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1767,7 +1767,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
-  EmojiPopup: d92a4f600e4f66521b54489241cc4ee7a7d025c9
+  EmojiPopup: e1200644342328ce677e22d5b72192aaa79bf568
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
   FBLazyVector: 6fe148afcef2e3213e484758e3459609d40d57f5
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd

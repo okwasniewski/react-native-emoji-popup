@@ -14,7 +14,14 @@ const EmojiModal = ({
 
   return (
     <>
-      <Pressable onPress={() => setModalVisible(true)}>{children}</Pressable>
+      <Pressable
+        onPress={() => {
+          setModalVisible(true);
+          console.log('open emoji modal');
+        }}
+      >
+        {children}
+      </Pressable>
 
       <Modal
         animationType="slide"
@@ -24,7 +31,7 @@ const EmojiModal = ({
       >
         <View style={styles.modalView}>
           {closeButton ? (
-            closeButton(close)
+            closeButton({ close })
           ) : (
             <Pressable style={styles.closeButton} onPress={close}>
               <Text style={styles.buttonText}>Close</Text>

@@ -28,10 +28,7 @@ export default function App() {
         <Text style={styles.buttonText}>Open Emoji Picker</Text>
       </EmojiPopup>
       {Platform.OS === 'android' && (
-        <EmojiPopup
-          onEmojiSelected={setEmoji}
-          closeButton={(close) => <CloseButton close={close} />}
-        >
+        <EmojiPopup onEmojiSelected={setEmoji} closeButton={CloseButton}>
           <Text style={styles.buttonText}>
             Open Emoji Picker With Custom Close button
           </Text>

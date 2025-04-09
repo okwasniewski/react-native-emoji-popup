@@ -1,3 +1,7 @@
+type CloseButtonProps = {
+  close: () => void;
+};
+
 export interface EmojiPopupProps {
   /*
    * A React node that will be rendered as the trigger of the EmojiPopup.
@@ -11,5 +15,5 @@ export interface EmojiPopupProps {
    * A function that returns a React node to be rendered as the close button.
    * @platform android
    */
-  closeButton?: (close: () => void) => React.ReactNode;
+  closeButton?: (props: CloseButtonProps) => React.ReactNode;
 }
