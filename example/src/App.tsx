@@ -1,6 +1,19 @@
 import { useState } from 'react';
-import { View, StyleSheet, TextInput, Text } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  Text,
+  Platform,
+  Pressable,
+} from 'react-native';
 import { EmojiPopup } from 'react-native-emoji-popup';
+
+const CloseButton = ({ close }: { close: () => void }) => (
+  <Pressable onPress={close}>
+    <Text style={styles.buttonText}>Close ❌</Text>
+  </Pressable>
+);
 
 export default function App() {
   const [emoji, setEmoji] = useState('🫡');
@@ -14,6 +27,13 @@ export default function App() {
       <EmojiPopup onEmojiSelected={setEmoji}>
         <Text style={styles.buttonText}>Open Emoji Picker</Text>
       </EmojiPopup>
+      {Platform.OS === 'android' && (
+        <EmojiPopup onEmojiSelected={setEmoji} closeButton={CloseButton}>
+          <Text style={styles.buttonText}>
+            Open Emoji Picker With Custom Close button
+          </Text>
+        </EmojiPopup>
+      )}
     </View>
   );
 }
