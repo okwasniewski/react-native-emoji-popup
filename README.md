@@ -36,6 +36,12 @@ On Android, you can also pass a custom close button component to the `closeButto
 ```js
 import { EmojiPopup } from 'react-native-emoji-popup';
 
+const CloseButton = ({ close }: { close: () => void }) => (
+  <Pressable onPress={close}>
+    <Text style={styles.buttonText}>Close ❌</Text>
+  </Pressable>
+);
+
 export default function EmojiExample() {
   const [emoji, setEmoji] = useState('🫡');
 
@@ -44,7 +50,8 @@ export default function EmojiExample() {
       <TextInput value={emoji} />
       <EmojiPopup
         onEmojiSelected={setEmoji}
-        closeButton={(close) => <Pressable onPress={close} style={styles.buttonText}>Close</Pressable>}
+        closeButton={CloseButton}
+        style={styles.buttonText}
       >
         <Text style={styles.buttonText}>Open Emoji Picker</Text>
       </EmojiPopup>

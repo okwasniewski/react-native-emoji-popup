@@ -14,14 +14,7 @@ const EmojiModal = ({
 
   return (
     <>
-      <Pressable
-        onPress={() => {
-          setModalVisible(true);
-          console.log('open emoji modal');
-        }}
-      >
-        {children}
-      </Pressable>
+      <Pressable onPress={() => setModalVisible(true)}>{children}</Pressable>
 
       <Modal
         animationType="slide"
