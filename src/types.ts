@@ -1,3 +1,5 @@
+import type { StyleProp, ViewStyle } from 'react-native';
+
 type CloseButtonProps = {
   close: () => void;
 };
@@ -16,4 +18,10 @@ export interface EmojiPopupProps {
    * @platform android
    */
   closeButton?: (props: CloseButtonProps) => React.ReactNode;
+
+  /*
+   * Content container style.
+   * @platform android
+   */
+  contentContainerStyle?: StyleProp<ViewStyle>;
 }
