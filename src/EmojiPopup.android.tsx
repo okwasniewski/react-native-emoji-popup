@@ -1,4 +1,11 @@
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from 'react-native';
 import EmojiPopupView from './EmojiPopupViewNativeComponent';
 import { useState } from 'react';
 import type { EmojiPopupProps } from './types';
@@ -7,10 +14,14 @@ const EmojiModal = ({
   children,
   onEmojiSelected,
   closeButton,
+  contentContainerStyle,
 }: EmojiPopupProps) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const colorScheme = useColorScheme();
 
   const close = () => setModalVisible(false);
+
+  const backgroundColor = colorScheme === 'dark' ? '#000' : '#fff';
 
   return (
     <>
@@ -22,7 +33,15 @@ const EmojiModal = ({
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <View style={styles.modalView}>
+        <View
+          style={[
+            {
+              backgroundColor,
+            },
+            styles.modalView,
+            contentContainerStyle,
+          ]}
+        >
           {closeButton ? (
             closeButton({ close })
           ) : (
@@ -55,7 +74,6 @@ const styles = StyleSheet.create({
   },
   modalView: {
     flex: 1,
-    backgroundColor: 'white',
     paddingTop: 50,
   },
   closeButton: {

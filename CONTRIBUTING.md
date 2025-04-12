@@ -23,28 +23,22 @@ The [example app](/example/) demonstrates usage of the library. You need to run 
 
 It is configured to use the local version of the library, so any changes you make to the library's source code will be reflected in the example app. Changes to the library's JavaScript code will be reflected in the example app without a rebuild, but native code changes will require a rebuild of the example app.
 
-If you want to use Android Studio or XCode to edit the native code, you can open the `example/android` or `example/ios` directories respectively in those editors. To edit the Objective-C or Swift files, open `example/ios/EmojiPopupExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > react-native-emoji-popup`.
+For development, you need to use the official IDEs:
 
-To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `react-native-emoji-popup` under `Android`.
+For iOS:
+- Open `example/ios/EmojiPopupExample.xcworkspace` in Xcode
+- Navigate to `Pods > Development Pods > react-native-emoji-popup` to find the Objective-C/Swift source files
 
-You can use various commands from the root directory to work with the project.
+For Android:
+- Open `example/android` in Android Studio
+- Find the source files under `react-native-emoji-popup` in the Android view
+
+Using these IDEs is recommended as they provide the proper development environment, debugging tools, and ensure compatibility with the native platforms.
 
 To start the packager:
 
 ```sh
 yarn example start
-```
-
-To run the example app on Android:
-
-```sh
-yarn example android
-```
-
-To run the example app on iOS:
-
-```sh
-yarn example ios
 ```
 
 To confirm that the app is running with the new architecture, you can check the Metro logs for a message like this:
