@@ -10,9 +10,9 @@
 <div align="center">
 
 [![mit licence](https://img.shields.io/dub/l/vibe-d.svg?style=for-the-badge)](https://github.com/okwasniewski/react-native-emoji-popup/blob/main/LICENSE)
-[![npm version](https://img.shields.io/npm/v/react-native-emoji-popup?style=for-the-badge)](https://www.npmjs.org/package/react-native-bottom-tabs)
-[![npm downloads](https://img.shields.io/npm/dt/react-native-emoji-popup.svg?style=for-the-badge)](https://www.npmjs.org/package/react-native-bottom-tabs)
-[![npm downloads](https://img.shields.io/npm/dm/react-native-emoji-popup.svg?style=for-the-badge)](https://www.npmjs.org/package/react-native-bottom-tabs)
+[![npm version](https://img.shields.io/npm/v/react-native-emoji-popup?style=for-the-badge)](https://www.npmjs.org/package/react-native-emoji-popup)
+[![npm downloads](https://img.shields.io/npm/dt/react-native-emoji-popup.svg?style=for-the-badge)](https://www.npmjs.org/package/react-native-emoji-popup)
+[![npm downloads](https://img.shields.io/npm/dm/react-native-emoji-popup.svg?style=for-the-badge)](https://www.npmjs.org/package/react-native-emoji-popup)
 </div>
 
 https://github.com/user-attachments/assets/a6f94dc5-6175-419c-a6e4-04ef48aaf913
