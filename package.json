@@ -187,6 +187,11 @@
     "jsSrcsDir": "src",
     "android": {
       "javaPackageName": "com.emojipopup"
+    },
+    "ios": {
+      "componentProvider": {
+        "EmojiPopupView": "EmojiPopupView"
+      }
     }
   },
   "create-react-native-library": {
