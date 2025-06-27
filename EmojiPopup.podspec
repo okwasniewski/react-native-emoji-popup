@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm,cpp,swift}"
 
-  s.dependency "MCEmojiPicker", "~> 1.2.5"
+  s.dependency "MCEmojiPicker", "1.2.3"
 
   install_modules_dependencies(s)
 end

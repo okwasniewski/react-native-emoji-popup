@@ -5,7 +5,7 @@ PODS:
     - DoubleConversion
     - glog
     - hermes-engine
-    - MCEmojiPicker (~> 1.2.5)
+    - MCEmojiPicker (= 1.2.3)
     - RCT-Folly (= 2024.11.18.00)
     - RCTRequired
     - RCTTypeSafety
@@ -30,7 +30,7 @@ PODS:
   - hermes-engine (0.78.0):
     - hermes-engine/Pre-built (= 0.78.0)
   - hermes-engine/Pre-built (0.78.0)
-  - MCEmojiPicker (1.2.5)
+  - MCEmojiPicker (1.2.3)
   - RCT-Folly (2024.11.18.00):
     - boost
     - DoubleConversion
@@ -1767,13 +1767,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
-  EmojiPopup: de14cb5b36fbb9976bb9c1792b1e5cee25894a78
+  EmojiPopup: cd3af7f8b93d3aea03f3545ff3837478b698530d
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
   FBLazyVector: 6fe148afcef2e3213e484758e3459609d40d57f5
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: eb93e2f488219332457c3c4eafd2738ddc7e80b8
   hermes-engine: b417d2b2aee3b89b58e63e23a51e02be91dc876d
-  MCEmojiPicker: f5d1d691c56aacf287a50378ee2afe2b30bd6b52
+  MCEmojiPicker: 6650cfa8d79fc8d71bf77dbed6166f946cee9c96
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
   RCTDeprecation: b2eecf2d60216df56bc5e6be5f063826d3c1ee35
   RCTRequired: 78522de7dc73b81f3ed7890d145fa341f5bb32ea
