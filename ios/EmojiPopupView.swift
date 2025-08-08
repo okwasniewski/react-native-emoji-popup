@@ -15,9 +15,9 @@ public class EmojiPopupViewImpl: UIView, MCEmojiPickerDelegate {
   public override func didMoveToWindow() {
     super.didMoveToWindow()
     if tapGesture == nil {
-      let g = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-      self.addGestureRecognizer(g)
-      tapGesture = g
+      let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+      self.addGestureRecognizer(gestureRecognizer)
+      tapGesture = gestureRecognizer
     }
   }
   
