@@ -10,10 +10,15 @@ import React
 public class EmojiPopupViewImpl: UIView, MCEmojiPickerDelegate {
   private var delegate: EmojiPopupDelegate?
   @objc var onEmojiSelected: RCTDirectEventBlock?
+  private var tapGesture: UITapGestureRecognizer?
   
-  public override func layoutSubviews() {
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-    self.addGestureRecognizer(tapGesture)
+  public override func didMoveToWindow() {
+    super.didMoveToWindow()
+    if tapGesture == nil {
+      let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+      self.addGestureRecognizer(gestureRecognizer)
+      tapGesture = gestureRecognizer
+    }
   }
   
   @objc func handleTap(_ gesture: UITapGestureRecognizer) {
