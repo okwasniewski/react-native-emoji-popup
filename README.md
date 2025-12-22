@@ -90,6 +90,18 @@ export default function EmojiExample() {
 
 The emoji picker automatically adapts to the device's color scheme on both platforms. On Android, you can customize the color scheme by passing a `contentContainerStyle` prop to the `EmojiPopup` component and specifying the `backgroundColor` property.
 
+## iOS: Using the Latest MCEmojiPicker Fixes
+
+If you experience issues with duplicate category bar icons on iOS, you can use the [Jeanno/MCEmojiPicker](https://github.com/Jeanno/MCEmojiPicker) fork which includes a fix for this issue.
+
+Add the following to your app's `ios/Podfile` before the `target` block:
+
+```ruby
+pod 'MCEmojiPicker', :git => 'https://github.com/Jeanno/MCEmojiPicker.git'
+```
+
+Then run `pod install` to update your dependencies.
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
@@ -101,6 +113,7 @@ MIT
 ## Acknowledgements
 
 - [MCEmojiPicker](https://github.com/izyumkin/MCEmojiPicker) - underlying iOS library.
+- [Jeanno/MCEmojiPicker](https://github.com/Jeanno/MCEmojiPicker) - fork with additional bug fixes.
 - [Emoji2](https://developer.android.com/jetpack/androidx/releases/emoji2) - underlying Android library.
 
 ---
