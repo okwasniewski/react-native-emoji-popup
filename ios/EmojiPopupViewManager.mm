@@ -1,6 +1,6 @@
 #import <React/RCTViewManager.h>
 #import <React/RCTUIManager.h>
-#import "RCTBridge.h"
+#import <React/RCTBridge.h>
 
 #if __has_include("EmojiPopup/EmojiPopup-Swift.h")
 #import "EmojiPopup/EmojiPopup-Swift.h"
